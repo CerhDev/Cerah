@@ -11,11 +11,11 @@ fetch(url)
     list.innerHTML = "";
 
     data.forEach(item => {
-      if (item.Status === "APPROVED") {
+      if (item.status === "APPROVED") {
         const div = document.createElement("div");
         div.innerHTML = `
-          <h4>${item.Judul postingan}</h4>
-          <img src="${item.Uploud foto dan video}" style="width:100%;border-radius:8px">
+          <h4>${item.judul}</h4>
+          <img src="${item.gambar}" style="width:100%;border-radius:8px">
         `;
         list.appendChild(div);
       }
