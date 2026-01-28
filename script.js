@@ -1,7 +1,3 @@
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("sw.js");
-}
-
 const url = "https://opensheet.elk.sh/11QJIlV712ik9kwpMFh2aqoC9SgWMEJwp_McoJqaOkLk/CerahRequiem";
 
 fetch(url)
@@ -11,16 +7,11 @@ fetch(url)
     list.innerHTML = "";
 
     data.forEach(item => {
-      if (item.status === "APPROVED") {
-        const div = document.createElement("div");
-        div.innerHTML = `
-          <h4>${item.judul}</h4>
-          <img src="${item.gambar}" style="width:100%;border-radius:8px">
-        `;
-        list.appendChild(div);
-      }
+      const p = document.createElement("p");
+      p.textContent = item.judul;
+      list.appendChild(p);
     });
   })
-  .catch(err => {
-    document.getElementById("list").innerText = "Gagal memuat konten";
+  .catch(() => {
+    document.getElementById("list").innerText = "Gagal load judul";
   });
